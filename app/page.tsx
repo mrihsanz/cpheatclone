@@ -1,4 +1,5 @@
 "use client";
+import { useEffect, useState } from "react";
 
 const services = [
   {
@@ -129,6 +130,27 @@ const faqs = [
 ];
 
 export default function Home() {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isServiceAreasOpen, setIsServiceAreasOpen] = useState(false);
+
+  useEffect(() => {
+    document.body.style.overflow = isSidebarOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isSidebarOpen]);
+
+  useEffect(() => {
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setIsSidebarOpen(false);
+      }
+    };
+
+    window.addEventListener("keydown", handleEscape);
+    return () => window.removeEventListener("keydown", handleEscape);
+  }, []);
+
   return (
     <div className="cp-page">
       <header className="top-header">
@@ -174,12 +196,55 @@ export default function Home() {
             </a>
             <a href="https://www.cpheat.com/financing">Financing</a>
             <a href="https://www.cpheat.com/contact-us">Contact Us</a>
-            <a href="#" className="menu-btn">
+            <button
+              type="button"
+              className="menu-btn"
+              aria-expanded={isSidebarOpen}
+              aria-controls="main-sidebar-menu"
+              onClick={() => setIsSidebarOpen(true)}
+            >
               Menu <span>☰</span>
-            </a>
+            </button>
           </div>
         </nav>
       </header>
+
+      <div
+        className={`sidebar-overlay ${isSidebarOpen ? "open" : ""}`}
+        onClick={() => setIsSidebarOpen(false)}
+        aria-hidden={!isSidebarOpen}
+      />
+      <aside id="main-sidebar-menu" className={`side-menu ${isSidebarOpen ? "open" : ""}`} aria-hidden={!isSidebarOpen}>
+        <button type="button" className="side-menu-close" aria-label="Close menu" onClick={() => setIsSidebarOpen(false)}>
+          ×
+        </button>
+
+        <nav className="side-menu-nav" aria-label="Sidebar Menu">
+          <a href="https://www.cpheat.com/about-us">About Us</a>
+          <button
+            type="button"
+            className="side-menu-toggle"
+            aria-expanded={isServiceAreasOpen}
+            onClick={() => setIsServiceAreasOpen((prev) => !prev)}
+          >
+            Service Areas <span>{isServiceAreasOpen ? "▾" : "▸"}</span>
+          </button>
+          {isServiceAreasOpen && (
+            <div className="side-submenu">
+              <a href="https://www.cpheat.com/service-area/air-conditioning-heating-college-place-wa">College Place</a>
+              <a href="https://www.cpheat.com/service-area/air-conditioning-heating-walla-walla-wa">Walla Walla</a>
+              <a href="https://www.cpheat.com/service-area/air-conditioning-heating-milton-freewater-or">
+                Milton-Freewater
+              </a>
+            </div>
+          )}
+          <a href="https://www.cpheat.com/about-us/reviews">Reviews</a>
+          <a href="https://www.cpheat.com/blog">Blog</a>
+          <a href="https://www.cpheat.com/contact-us/employment">Employment</a>
+          <a href="https://www.cpheat.com/referral-program">Referral Program</a>
+          <a href="https://www.cpheat.com/video-gallery">Video Gallery</a>
+        </nav>
+      </aside>
 
       <section className="hero">
         <div className="hero-overlay">
