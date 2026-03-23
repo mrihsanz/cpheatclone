@@ -195,7 +195,7 @@ export default function Home() {
               Electrical <span className="caret">▼</span>
             </a>
             <a href="https://www.cpheat.com/financing">Financing</a>
-            <a href="https://www.cpheat.com/contact-us">Contact Us</a>
+            <a href="/contact-us">Contact Us</a>
             <button
               type="button"
               className="menu-btn"
