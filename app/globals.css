@@ -1,0 +1,726 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f5f8fb;
+  --foreground: #1f2d3d;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: "SuisseIntl-Regular", var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  line-height: 1.45;
+}
+
+@font-face {
+  font-family: "SuisseIntl-Regular";
+  font-style: normal;
+  font-weight: 400;
+  src: url("https://www.cpheat.com/wp-content/uploads/2024/07/SuisseIntl-Regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "SuisseIntl-Bold";
+  font-style: normal;
+  font-weight: 700;
+  src: url("https://www.cpheat.com/wp-content/uploads/2024/07/SuisseIntl-Bold.woff2") format("woff2");
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.cp-page {
+  color: #1b2938;
+  background: #ffffff;
+}
+
+.container {
+  width: min(1180px, 92%);
+  margin: 0 auto;
+}
+
+.top-header {
+  background: #ececec;
+  border-bottom: 1px solid #cfd5db;
+}
+
+.header-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 0 10px;
+}
+
+.logo-cluster {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cp-logo-image {
+  width: 269px;
+  max-width: 42vw;
+  height: auto;
+}
+
+.daikin-logo-image {
+  width: 70px;
+  height: auto;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header-btn {
+  min-width: 140px;
+  text-align: center;
+  border-radius: 4px;
+  padding: 13px 14px 10px;
+  font-size: 21px;
+  font-family: "SuisseIntl-Bold", sans-serif;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1;
+}
+
+.header-btn.cyan {
+  background: #2cb6e9;
+}
+
+.header-btn.dark {
+  background: #4f5359;
+}
+
+.main-nav {
+  background: #4f5359;
+  border-top: 1px solid #666b72;
+  border-bottom: 1px solid #666b72;
+}
+
+.nav-wrap {
+  display: flex;
+  gap: 0;
+  align-items: center;
+  padding: 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #f4f7fa;
+}
+
+.nav-wrap > a {
+  padding: 13px 18px;
+}
+
+.nav-wrap .caret {
+  font-size: 10px;
+  margin-left: 4px;
+}
+
+.nav-wrap .menu-btn {
+  margin-left: auto;
+  background: #2ab5e8;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.nav-wrap .menu-btn span {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.hero {
+  min-height: 86vh;
+  background-image: url("https://www.cpheat.com/wp-content/uploads/2024/07/FLASH.jpg");
+  background-size: cover;
+  background-position: bottom center;
+}
+
+.hero-overlay {
+  min-height: 86vh;
+  display: grid;
+  align-items: center;
+}
+
+.hero-content {
+  color: #fff;
+  width: min(88%, 980px);
+  margin: 0 auto;
+  text-align: center;
+  padding: 40px 0;
+  border-radius: 10px;
+  backdrop-filter: blur(5px);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45));
+}
+
+.hero-content h1 {
+  font-family: "SuisseIntl-Bold", sans-serif;
+  font-size: clamp(22px, 4.2vw, 50px);
+  line-height: 1.12;
+  text-transform: uppercase;
+  text-shadow: 0 0 4px rgb(0 0 0 / 13%);
+}
+
+.hero-content h2 {
+  font-size: clamp(15px, 2.2vw, 24px);
+  margin-top: 10px;
+  font-family: "SuisseIntl-Bold", sans-serif;
+  text-transform: uppercase;
+  text-shadow: 0 0 4px rgb(0 0 0 / 13%);
+}
+
+.primary-btn {
+  display: inline-block;
+  background: #2bb8ea;
+  color: #fff;
+  padding: 18px 14px 14px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1;
+  font-family: "SuisseIntl-Bold", sans-serif;
+}
+
+.hero-cta {
+  margin-top: 18px;
+  min-width: 260px;
+}
+
+.choice-badge {
+  width: clamp(90px, 12vw, 160px);
+  border-radius: 10px;
+  margin-top: 26px;
+}
+
+.hero-pill-strip {
+  background: #e7f6ff;
+  padding: 10px 0;
+}
+
+.primary-btn.small {
+  margin-top: 20px;
+  font-size: 18px;
+  padding: 13px 14px 10px;
+}
+
+.primary-btn.alt {
+  background: #4c535c;
+}
+
+.hero-pill-grid {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.hero-pill-grid span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #4f5359;
+  font-size: 16px;
+}
+
+.hero-pill-grid span img {
+  width: 20px;
+  height: 20px;
+}
+
+.section {
+  padding: 60px 0;
+}
+
+.section.light {
+  background: #f2f9fd;
+}
+
+.section-kicker {
+  text-transform: uppercase;
+  font-size: 22px;
+  color: #1caeef;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.section-kicker.pill {
+  display: inline-block;
+  padding: 6px 15px 4px;
+  border: 1px solid #1caeef;
+  border-radius: 40px;
+}
+
+.section-kicker.white {
+  color: #fff;
+  border-color: #fff;
+}
+
+.section h3 {
+  font-size: clamp(25px, 3.1vw, 40px);
+  color: #4c535c;
+  margin-bottom: 22px;
+  text-transform: uppercase;
+  line-height: 1.15;
+  font-family: "SuisseIntl-Bold", sans-serif;
+  font-weight: 700;
+}
+
+.center {
+  text-align: center;
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.service-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 34px 12px;
+  box-shadow: 0 2px 12px rgb(0 0 0 / 10%);
+}
+
+.service-icon-image {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 10px;
+}
+
+.service-card p {
+  font-size: 26px;
+  font-weight: 700;
+  color: #4c535c;
+  line-height: 1.1;
+}
+
+.about-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 40px;
+}
+
+.about-media {
+  position: relative;
+}
+
+.about-main-image {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.about-badge-image {
+  width: min(180px, 36%);
+  position: absolute;
+  right: 10px;
+  bottom: -15px;
+}
+
+.about .tagline {
+  margin-top: 0;
+  margin-bottom: 16px;
+  color: #23a8dd;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  font-size: 24px;
+}
+
+.about-copy {
+  max-width: 560px;
+  margin-bottom: 10px;
+  color: #4c535c;
+  font-size: 19px;
+}
+
+.phone-link {
+  display: inline-block;
+  margin-top: 12px;
+  margin-bottom: 0;
+  color: #fff;
+  background: #4c535c;
+  padding: 16px 18px 12px;
+  border-radius: 5px;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.leaders-title {
+  text-transform: uppercase;
+  color: #4c535c;
+  font-size: 34px;
+  margin-bottom: 18px;
+  margin-top: 45px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.team-wrap {
+  margin-top: 20px;
+}
+
+.leader-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.leader-card {
+  text-align: center;
+}
+
+.leader-card img {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  border: 2px solid #1caeef;
+  box-shadow: 0 10px 21px rgb(23 129 174 / 36%);
+}
+
+.leader-card .name {
+  font-size: 22px;
+  color: #4c535c;
+  font-weight: 700;
+}
+
+.leader-card p {
+  font-size: 18px;
+}
+
+.leader-card .year {
+  color: #4c535c;
+  text-transform: capitalize;
+}
+
+.testimonial {
+  background: linear-gradient(180deg, #e8f7ff 44%, #fff 100%);
+}
+
+.review-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.review-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 0 15px rgb(0 0 0 / 10%);
+}
+
+.review-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.review-head > img {
+  width: 56px;
+  height: 56px;
+}
+
+.review-head div img {
+  width: 127px;
+  height: auto;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.review-card h4 {
+  color: #4c535c;
+  margin-bottom: 0;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.review-card p {
+  color: #4c535c;
+  font-size: 17px;
+}
+
+.review-actions {
+  margin-top: 24px;
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+}
+
+.two-col {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+}
+
+.two-col article {
+  background: #fff;
+  border-radius: 8px;
+  padding: 22px;
+}
+
+.finance-banner {
+  width: 100%;
+  border-radius: 6px;
+  margin-bottom: 14px;
+}
+
+.optimus-logo {
+  width: min(250px, 60%);
+  margin-bottom: 16px;
+}
+
+.two-col p,
+.two-col li {
+  color: #4f677c;
+  font-size: 17px;
+}
+
+.two-col ul {
+  margin-top: 12px;
+  padding-left: 18px;
+}
+
+.two-col li {
+  margin-bottom: 6px;
+}
+
+.list-style1 li {
+  list-style-image: url("https://www.cpheat.com/wp-content/uploads/2024/07/list-icon1.webp");
+}
+
+.partner {
+  background: #fff;
+}
+
+.manufacturer-image {
+  width: min(560px, 95%);
+  border-radius: 8px;
+}
+
+.faq-list {
+  display: grid;
+  gap: 12px;
+}
+
+.faq-card {
+  background: #fff;
+  border-radius: 8px;
+  padding: 18px 20px;
+  box-shadow: 0 0 12px rgb(0 0 0 / 8%);
+}
+
+.faq-card h4 {
+  color: #4c535c;
+  margin-bottom: 8px;
+  font-weight: 700;
+  font-size: 22px;
+}
+
+.faq-card p {
+  color: #4f677c;
+  font-size: 16px;
+}
+
+.sponsor {
+  background: #fff;
+}
+
+.sponsor-wrap {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 25px;
+  align-items: center;
+  text-align: left;
+}
+
+.sponsor-wrap img {
+  width: 100%;
+}
+
+.sponsor-wrap h3 {
+  margin-bottom: 8px;
+}
+
+.sponsor-wrap p {
+  color: #4f677c;
+}
+
+.areas {
+  background: #4c535c;
+}
+
+.areas-wrap {
+  display: grid;
+  grid-template-columns: 1fr minmax(340px, 45%);
+  gap: 24px;
+  align-items: center;
+}
+
+.areas h3.white {
+  color: #fff;
+}
+
+.areas-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  padding: 0;
+  list-style: none;
+}
+
+.areas-grid li {
+  color: #fff;
+  text-align: left;
+  padding: 8px 6px 8px 30px;
+  font-size: 20px;
+  background: url("https://www.cpheat.com/wp-content/uploads/2024/07/sa-list-icon.webp") left center no-repeat;
+}
+
+.areas-image {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid #1caeef;
+  box-shadow: 0 7px 20px 6px rgb(14 123 150 / 24%);
+}
+
+.footer {
+  background: #f7fbff;
+  border-top: 1px solid #d7e8f2;
+  padding-top: 26px;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding-bottom: 20px;
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.footer-brand img:first-child {
+  width: 220px;
+}
+
+.footer-brand img:last-child {
+  width: 60px;
+}
+
+.footer-title {
+  color: #4c535c;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+
+.footer-top a {
+  display: block;
+  color: #0f6897;
+  margin-bottom: 6px;
+  font-weight: 700;
+}
+
+.footer-bottom {
+  border-top: 1px solid #dae8f1;
+  padding: 12px 0 24px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 13px;
+}
+
+.footer-bottom div {
+  display: flex;
+  gap: 14px;
+}
+
+@media (max-width: 980px) {
+  .service-grid,
+  .leader-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .two-col,
+  .areas-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .review-list,
+  .about-wrap,
+  .areas-wrap,
+  .sponsor-wrap {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .header-main,
+  .logo-cluster,
+  .header-actions,
+  .footer-top,
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .header-btn {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .nav-wrap {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  .hero {
+    min-height: 535px;
+  }
+
+  .hero-overlay {
+    min-height: 535px;
+  }
+
+  .hero-content {
+    width: 100%;
+    padding: 24px 18px;
+  }
+
+  .hero-pill-grid span {
+    font-size: 14px;
+  }
+
+  .service-card p {
+    font-size: 22px;
+  }
+
+  .service-grid,
+  .leader-grid,
+  .two-col,
+  .areas-grid {
+    grid-template-columns: 1fr;
+  }
+}
