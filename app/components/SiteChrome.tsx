@@ -200,35 +200,117 @@ export default function SiteChrome({ children }: SiteChromeProps) {
 
       <footer className="footer">
         <div className="container footer-top">
-          <div>
+          <div className="footer-col footer-col-left">
             <div className="footer-brand">
-              <img
-                src="https://www.cpheat.com/wp-content/uploads/2024/07/cp-college-place-logo.webp"
-                alt="College Place logo"
-              />
+              <a href="/">
+                <img
+                  src="https://www.cpheat.com/wp-content/uploads/2024/07/cp-college-place-logo.webp"
+                  alt="College Place logo"
+                />
+              </a>
               <img
                 src="https://www.cpheat.com/wp-content/uploads/2024/07/Daikin-comfot-pro-logo.webp"
-                alt="Daikin"
+                alt="Daikin Comfort Pro"
               />
             </div>
-            <p className="footer-title">970 NE Rose St, College Place, WA 99324</p>
-            <p>Working hours:</p>
-            <p>Monday-Thursday: 8AM - 5 PM</p>
-            <p>Friday: 8AM - 3PM</p>
+            <a
+              className="footer-location"
+              href="https://maps.app.goo.gl/yjmmzSpishnohkbAA"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              970 NE Rose St,
+              <br />
+              College Place, WA 99324
+            </a>
+            <p className="footer-hours">
+              Working hours:
+              <br />
+              <br />
+              Monday-Thursday: 8AM - 5 PM
+              <br />
+              <br />
+              Friday: 8AM - 3PM
+            </p>
+            <a className="footer-call" href="tel:5095729353">
+              (509) 572-9353
+            </a>
           </div>
-          <div>
-            <a href="https://www.cpheat.com/request-service/">Request Service</a>
-            <a href="https://www.cpheat.com/maintenance-plan/">Maintenance Plan</a>
-            <a href="tel:+15095258073">(509) 525-8073</a>
+
+          <div className="footer-col footer-col-center">
+            <p className="footer-subtitle">Review Us On</p>
+            <a href="https://g.page/r/CcdQcg4rugVKEBM/review" target="_blank" rel="noopener noreferrer">
+              <img
+                className="footer-google-reviews"
+                src="https://www.cpheat.com/wp-content/uploads/2024/07/Google-Reviews.webp"
+                alt="Google reviews"
+              />
+            </a>
+            <div className="footer-socials">
+              <a href="https://www.facebook.com/cpheat/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                f
+              </a>
+              <a
+                href="https://www.instagram.com/collegeplaceheating/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+              >
+                i
+              </a>
+              <a
+                href="https://www.yelp.com/biz/college-place-heating-and-air-conditioning-college-place-3"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Yelp"
+              >
+                y
+              </a>
+              <a
+                href="https://www.youtube.com/channel/UCi_I9OXn09Ed2MTyjIfi1MA"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="YouTube"
+              >
+                ▶
+              </a>
+            </div>
+
+            <p className="footer-subtitle footer-payments-title">Payments</p>
+            <div className="payment-strip">
+              <img src="https://www.cpheat.com/wp-content/uploads/2024/07/cards1.webp" alt="Cards accepted" />
+              <img src="https://www.cpheat.com/wp-content/uploads/2024/07/cards2.webp" alt="Other payment methods" />
+            </div>
+          </div>
+
+          <div className="footer-col footer-col-right">
+            <div className="footer-cta-wrap">
+              <a className="header-btn cyan footer-cta" href="https://www.cpheat.com/request-service/">
+                REQUEST SERVICE
+              </a>
+              <a className="header-btn dark footer-cta" href="https://www.cpheat.com/maintenance-plan/">
+                MAINTENANCE PLAN
+              </a>
+            </div>
+            <div className="footer-badges">
+              <img src="https://www.cpheat.com/wp-content/uploads/2024/07/nate-logo-1.webp" alt="NATE certified" />
+              <img src="https://www.cpheat.com/wp-content/uploads/2024/07/bbb-logo-1.webp" alt="BBB A+ accredited" />
+            </div>
+            <p className="footer-license">Business license: 600-129-164</p>
           </div>
         </div>
+
         <div className="container footer-bottom">
-          <p>© 2026 College Place Heating and Air Conditioning. All rights reserved.</p>
-          <div>
-            <a href="#">Privacy Policy</a>
-            <a href="#">Accessibility Statement</a>
-            <a href="#">Sitemap</a>
-          </div>
+          <p className="footer-copyright">
+            © 2026 College Place Heating and Air Conditioning. All rights reserved. / <a href="#">Privacy Policy</a> /{" "}
+            <a href="#">Accessibility Statement</a> / <a href="#">Sitemap</a>
+          </p>
+          <p className="footer-credit">
+            Designed &amp; Developed By :{" "}
+            <a href="https://www.ciwebgroup.com/" target="_blank" rel="noopener noreferrer">
+              <img src="https://www.cpheat.com/wp-content/uploads/2024/07/ci-logo.webp" alt="CI Web Group" />
+            </a>
+          </p>
         </div>
       </footer>
     </div>
