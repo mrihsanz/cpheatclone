@@ -129,6 +129,59 @@ const faqs = [
   },
 ];
 
+type MainMenuChild = {
+  name: string;
+  url: string;
+};
+
+type MainMenuItem = {
+  name: string;
+  url: string | null;
+  children?: MainMenuChild[];
+};
+
+const mainMenu: MainMenuItem[] = [
+  {
+    name: "AC",
+    url: "https://www.cpheat.com/services/ac",
+    children: [
+      { name: "Air Conditioning", url: "https://www.cpheat.com/services/ac" },
+      { name: "AC Repair", url: "https://www.cpheat.com/services/ac-repair" },
+      { name: "AC Maintenance", url: "https://www.cpheat.com/hvac/walla-walla-wa/ac-maintenance" },
+      { name: "AC Replacement", url: "https://www.cpheat.com/hvac/walla-walla-wa/ac-replacement" },
+      { name: "Mini Split AC", url: "https://www.cpheat.com/hvac/walla-walla-wa/mini-split-air-conditioner" },
+      { name: "Mini Split Installation", url: "https://www.cpheat.com/hvac/walla-walla-wa/mini-split-installation" },
+      { name: "Geothermal Cooling", url: "https://www.cpheat.com/hvac/walla-walla-wa/geothermal-cooling" },
+    ],
+  },
+  {
+    name: "Heating",
+    url: null,
+    children: [
+      { name: "Heating Repair", url: "https://www.cpheat.com/hvac/walla-walla-wa/heating-repair" },
+      { name: "Heat Pump", url: "https://www.cpheat.com/services/heat-pump" },
+      { name: "Furnace Repair", url: "https://www.cpheat.com/hvac/walla-walla-wa/furnace-repair" },
+      { name: "Furnace Installation", url: "https://www.cpheat.com/hvac/walla-walla-wa/furnace-installation" },
+      { name: "Boiler Repair", url: "https://www.cpheat.com/hvac/walla-walla-wa/boiler-repair" },
+      { name: "Boiler Replacement", url: "https://www.cpheat.com/electrical/walla-walla-wa/boiler-replacement" },
+      { name: "Boiler Installation", url: "https://www.cpheat.com/hvac/walla-walla-wa/boiler-installation" },
+      { name: "Geothermal Heating", url: "https://www.cpheat.com/hvac/walla-walla-wa/geothermal-heating" },
+    ],
+  },
+  {
+    name: "Electrical",
+    url: null,
+    children: [
+      { name: "Electrician", url: "https://www.cpheat.com/electrical/walla-walla-wa/electrician" },
+      { name: "Electrical Installation", url: "https://www.cpheat.com/electrical/walla-walla-wa/electrical-installation" },
+      { name: "Electrical Wiring Repair", url: "https://www.cpheat.com/electrical/walla-walla-wa/electrical-wiring-repair" },
+      { name: "Electric Panel Upgrade", url: "https://www.cpheat.com/electrical/walla-walla-wa/electric-panel-upgrade" },
+    ],
+  },
+  { name: "Financing", url: "https://www.cpheat.com/financing" },
+  { name: "Contact Us", url: "https://www.cpheat.com/contact-us" },
+];
+
 export default function Home() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isServiceAreasOpen, setIsServiceAreasOpen] = useState(false);
@@ -185,17 +238,36 @@ export default function Home() {
 
         <nav className="main-nav">
           <div className="container nav-wrap">
-            <a href="https://www.cpheat.com/services/ac">
-              AC <span className="caret">▼</span>
-            </a>
-            <a href="https://www.cpheat.com/services/heat-pump">
-              Heating <span className="caret">▼</span>
-            </a>
-            <a href="https://www.cpheat.com/electrical/walla-walla-wa/electrician">
-              Electrical <span className="caret">▼</span>
-            </a>
-            <a href="https://www.cpheat.com/financing">Financing</a>
-            <a href="/contact-us">Contact Us</a>
+            {mainMenu.map((item) => {
+              if (item.children) {
+                return (
+                  <div className="nav-dropdown" key={item.name}>
+                    {item.url ? (
+                      <a className="nav-dropdown-trigger" href={item.url}>
+                        {item.name} <span className="caret">▼</span>
+                      </a>
+                    ) : (
+                      <button type="button" className="nav-dropdown-trigger">
+                        {item.name} <span className="caret">▼</span>
+                      </button>
+                    )}
+                    <div className="nav-dropdown-menu">
+                      {item.children.map((child) => (
+                        <a key={child.name} href={child.url}>
+                          {child.name}
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                );
+              }
+
+              return (
+                <a key={item.name} href={item.url ?? "#"}>
+                  {item.name}
+                </a>
+              );
+            })}
             <button
               type="button"
               className="menu-btn"

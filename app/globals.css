@@ -114,6 +114,7 @@ a {
   display: flex;
   gap: 0;
   align-items: center;
+  position: relative;
   padding: 0;
   font-size: 20px;
   font-weight: 600;
@@ -123,6 +124,49 @@ a {
 .nav-wrap > a,
 .nav-wrap > button {
   padding: 13px 18px;
+}
+
+.nav-dropdown {
+  position: relative;
+}
+
+.nav-dropdown-trigger {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 13px 18px;
+  color: inherit;
+  background: transparent;
+  border: 0;
+  font: inherit;
+  cursor: pointer;
+}
+
+.nav-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 260px;
+  background: #4f5359;
+  border: 1px solid #666b72;
+  display: none;
+  z-index: 20;
+}
+
+.nav-dropdown-menu a {
+  display: block;
+  padding: 10px 14px;
+  font-size: 16px;
+  color: #f4f7fa;
+}
+
+.nav-dropdown-menu a:hover {
+  background: #2ab5e8;
+}
+
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown:focus-within .nav-dropdown-menu {
+  display: block;
 }
 
 .nav-wrap .caret {

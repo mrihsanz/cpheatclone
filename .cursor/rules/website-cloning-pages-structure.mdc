@@ -1,0 +1,25 @@
+---
+description: Next.js app router URL mapping for website conversion/cloning
+alwaysApply: true
+---
+
+# Website Conversion/Cloning: `src/app` Page Structure
+
+When converting or cloning a website, preserve this page-routing structure:
+
+- `src/app/` contains the site's URL structure.
+- Each subfolder maps directly to a URL path.
+
+Examples:
+
+- `src/app/page.tsx` -> homepage (`/`)
+- `src/app/about/page.tsx` -> about page (`/about`)
+- `src/app/services/[slug]/page.tsx` -> service pages (`/services/ac-repair`, etc.)
+- `src/app/service-areas/[slug]/page.tsx` -> city/location pages (`/service-areas/houston`, etc.)
+- `src/app/contact/page.tsx` -> contact page (`/contact`)
+
+Note on dynamic routes:
+
+- `[slug]` folders are dynamic routes.
+- A single `[slug]/page.tsx` can generate hundreds of pages.
+- Content for each generated page comes from PMS data.
